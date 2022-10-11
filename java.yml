@@ -1,0 +1,17 @@
+--- 
+- hosts: all 
+  become: yes
+  tasks: 
+          
+          - name: i want install java 8 package on ubuntu
+            apt:
+                   name: openjdk-8-jre
+                   state: present
+            when: ansible_os_family=="Debian"  
+            
+
+          - name: i want install java 8 packager on Redhat 
+            yum:
+                  name: java-1.8.0-openjdk
+                  state: latest
+            when: ansible_os_family=="RedHat"
